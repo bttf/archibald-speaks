@@ -1,13 +1,10 @@
 (ns archibald-two.application
   (:use [hiccup.core]
-        [hiccup.page]))
+        [hiccup.page])
+  (:require [archibald-two.db]))
 
 (def page-title
-  (str "archibald speaks"))
-
-(def all-updates
-  [:div {:class "content-box"}
-   [:p "It's day twenty seven on my expedition. So far, the donuts have been sustaining my will to live."]])
+  "archibald speaks")
 
 (defn content-box
   [content]
@@ -34,7 +31,8 @@
 
 (defn index
   []
-  (-> all-updates
+  (-> [:p "welcome to index"]
+    (content-box)
     (main-template)))
 
 (defn posts
@@ -49,9 +47,16 @@
     (content-box)
     (main-template)))
 
-
 (defn contact 
   []
   (-> "Email me at archibald AT chewbonga DOT com"
     (content-box)
     (main-template)))
+
+;; sql stuff
+;;
+;; (defn all-updates
+;;   []
+;;   (for [x (archibald-two.db/all-posts)]
+;;     (-> [:span (:title x)]
+;;       (content-box))))
