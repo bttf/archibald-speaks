@@ -1,0 +1,11 @@
+[4 5 6]
+(def x [4 5 6]_
+)
+(def x [4 5 6])
+x
+(for [y x]
+(* y y))
+(use 'hiccup-page)
+(use 'hiccup.page)
+(use 'hiccup.core)
+(use 'hiccup.page)
