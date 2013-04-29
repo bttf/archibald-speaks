@@ -24,6 +24,7 @@
       [:div {:class "nav-bar"}
        [:a {:href "/"} "home"]
        [:a {:href "/posts"} "posts"]
+       [:a {:href "/quotes"} "quotes"]
        [:a {:href "/about"} "about"]
        [:a {:href "/contact"} "contact"]]
       [:div {:class "body-div"}
@@ -37,7 +38,18 @@
 
 (defn posts
   []
-  (-> "Post after post after post, RIGHT HERE , NOT RIGHT NOW."
+  (-> (for [x (archibald-two.db/all-posts)]
+        (-> [:div
+             [:h2 (:title x)]
+             [:p (:content x)]
+             [:p (:tags x)]]
+          (content-box)))
+    (main-template)))
+
+(defn quotes
+  []
+  (-> (for [x (archibald-two.db/all-quotes)]
+        [:p (str "\"" (:quote x) "\" - " (:author x))])    
     (content-box)
     (main-template)))
 

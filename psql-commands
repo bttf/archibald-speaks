@@ -1,0 +1,23 @@
+show tables: \d
+drop table posts;
+
+create table posts
+(
+  id serial primary key,
+  title varchar(80),
+  content text,
+  tags varchar(80),
+  date_updated timestamp default statement_timestamp()
+);
+
+create table quotes
+(
+  id serial primary key,
+  quote text,
+  author varchar(64),
+  date_updated timestamp default statement_timestamp()
+);
+
+insert into posts (title, content, tags) values ('bach and baath: a bengalis take on food and music', 'food should taste good, music should sound good. thats it.', '#bengali #literature #bach and baath');
+
+alter table quotes owner to archibald;
