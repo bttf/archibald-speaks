@@ -49,8 +49,8 @@
 (defn quotes
   []
   (-> (for [x (archibald-two.db/all-quotes)]
-        [:p (str "\"" (:quote x) "\" - " (:author x))])    
-    (content-box)
+        (-> [:p (str "\"" (:quote x) "\" - " (:author x))]
+             (content-box)))
     (main-template)))
 
 (defn about
