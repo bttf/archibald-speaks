@@ -24,6 +24,7 @@
       [:div {:class "nav-bar"}
        [:a {:href "/"} "home"]
        [:a {:href "/posts"} "posts"]
+       [:a {:href "/add-post" :style "margin-left: 0"} "[+]"]
        [:a {:href "/quotes"} "quotes"]
        [:a {:href "/about"} "about"]
        [:a {:href "/contact"} "contact"]]
@@ -62,6 +63,35 @@
 (defn contact 
   []
   (-> "Email me at archibald AT chewbonga DOT com"
+    (content-box)
+    (main-template)))
+
+(def post-form
+  [:form {:method "post" :class "add-post"}
+   "title" 
+   [:br]
+   [:input {:type "text" :name "title"}]
+   [:br]
+   "content" 
+   [:br]
+   [:textarea {:name "content"}]
+   [:br]
+   "tags" 
+   [:br]
+   [:input {:type "text" :name "tags"}]
+   [:br]
+   [:input {:type "submit" :value "submit"}]])
+
+(defn add-post
+  []
+  (-> post-form
+    (content-box)
+    (main-template)))
+
+(defn post-added
+  [params]
+  (archibald-two.db/add-post-to-db (:title params) (:content params) (:tags params))
+  (-> (conj post-form [:div {:class "post-added"} [:h2 (str "post \"" (:title params) "\" added")]])
     (content-box)
     (main-template)))
 
