@@ -10,6 +10,8 @@
            (POST "/add-post" {params :params} (archibald-two.application/post-added params))
            (GET "/posts" [] (archibald-two.application/posts))
            (GET "/quotes" [] (archibald-two.application/quotes))
+           (GET "/add-quote" [] (archibald-two.application/add-quote))
+           (POST "/add-quote" {params :params} (archibald-two.application/quote-added params))
            (GET "/about" [] (archibald-two.application/about))
            (GET "/contact" [] (archibald-two.application/contact))
            (route/resources "/")

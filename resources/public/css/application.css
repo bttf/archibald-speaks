@@ -68,8 +68,42 @@ input[type=submit] {
 }
 
 .post-added {
-  background-color: #D5DDE1;
+  # background-color: #D5DDE1;
+  background-color: #fff9d0;
   border-radius: 10px;
   padding: 5px 5px 5px 25px;
   margin: 5px 0px;
+}
+
+.posts {
+  font-family: 'Lato',Helvetica,sans-serif;
+}
+.posts .title {
+}
+
+.posts .content {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8em;
+}
+
+.posts .tags {
+  background-color: #fff9d0;
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 10px 5px;
+}
+
+.main-page {
+  font-family: 'Lato',Helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8em;
+  padding: 25px 0px;
+}
+
+.main-page img {
+  float: right;
+  height: 192px;
+  margin-left: 25px;
 }

@@ -21,3 +21,9 @@
   [title content tags]
   (insert posts
           (values {:title title :content content :tags tags})))
+
+(defn add-quote-to-db
+  [the_quote author]
+  (insert quotes
+          (values {:quote the_quote :author author})))
+  
