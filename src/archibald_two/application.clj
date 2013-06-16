@@ -1,6 +1,7 @@
 (ns archibald-two.application
   (:use [hiccup.core]
-        [hiccup.page])
+        [hiccup.page]
+        [clojure.string])
   (:require [archibald-two.db]))
 
 (def page-title
@@ -33,14 +34,14 @@
        body]]]))
 
 (def archibald-introduction
-  (str "Hello human being, you have landed upon my web page."
-       "I am ARCHIBALD, Lord and Master of the Divinity of the Seventh Cross."
-       "My time here on Earth has allowed me to endow a lucky few to engage and"
-       "indulge in the resources provided here. Please enjoy yourself, do not"
-       "give into amazement, and save all praise for a time when you may reach me"
-       "on a higher plane."
-       "Enjoy,"
-       "ARCHIBALD"))
+  (join " " ["Hello human being, you have landed upon my web page."
+             "I am ARCHIBALD, Lord and Master of the Divinity of the Seventh Cross."
+             "My time here on Earth has allowed me to endow a lucky few to engage and"
+             "indulge in the resources provided here. Please enjoy yourself, do not"
+             "give into amazement, and save all praise for a time when you may reach me"
+             "on a higher plane."
+             "Enjoy,"
+             "ARCHIBALD"]))
 
 (def main-page
   [:div {:class "main-page"}
